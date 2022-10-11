@@ -11,7 +11,8 @@ public class Main {
 
     public static void main(String[] args)
     {
-        System.out.println("tite)";
+        System.out.println("tite");
+        System.out.println("tite");
         Student student = new Student(1,"Jethro1","Roxas","m",10,"jan",5,4,3);
         studentList.add(student);
         Student student2 = new Student(2,"Jethro2","Roxas","m",10,"jan",5,4,3);

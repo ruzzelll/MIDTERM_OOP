@@ -11,6 +11,7 @@ public class Main {
 
     public static void main(String[] args)
     {
+        System.out.println("tite)";
         Student student = new Student(1,"Jethro1","Roxas","m",10,"jan",5,4,3);
         studentList.add(student);
         Student student2 = new Student(2,"Jethro2","Roxas","m",10,"jan",5,4,3);
@@ -19,9 +20,6 @@ public class Main {
         studentList.add(student3);
         Student student4 = new Student(4,"Jethro4","Roxas","m",10,"jan",5,4,3);
         studentList.add(student4);
-
-
-
 
 
         menu_ST(); // display Student or Teacher menu

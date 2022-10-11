@@ -54,7 +54,7 @@ public class Person {
 
     Person(int ID, String Fname, String Lname, String Gender, String PhoneNum, String Address){
         this.ID = ID;
-        PhoneNum = PhoneNum;
+        this.PhoneNum = PhoneNum;
         this.FName = Fname;
         this.LName = Lname;
         this.Gender = Gender;

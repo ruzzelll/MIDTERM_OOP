@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList; // import the ArrayList class
@@ -11,8 +13,7 @@ public class Main {
 
     public static void main(String[] args)
     {
-        System.out.println("tite");
-        System.out.println("tite");
+
         Student student = new Student(1,"Jethro1","Roxas","m",10,"jan",5,4,3);
         studentList.add(student);
         Student student2 = new Student(2,"Jethro2","Roxas","m",10,"jan",5,4,3);
@@ -41,9 +42,10 @@ public class Main {
 
         for(int i = 0; i < studentList.size(); i++){
             if(updateID == studentList.get(i).getID()){
-                System.out.println("Updating Student#");
+                System.out.println("Updating Student#" + updateID);
             }
         }
+
 
     }
     static void add_student(){
@@ -68,6 +70,7 @@ public class Main {
 
         System.out.print("Enter First Name: ");
         String addFirstname = in.next();
+        //studentList.get(in.nextInt()).ID();
 
         System.out.print("Enter Last Name: ");
         String addLastname = in.next();
@@ -124,6 +127,8 @@ public class Main {
             System.out.print("Enter Student ID (ex. 202110139): ");
             int delID = in.nextInt();
 
+
+
             for (int i = 0; i < studentList.size(); i++) {
                 if (studentList.get(i).getID() == delID) {
                     System.out.println(studentList.get(i).getID() + " Has been removed from the database!!");
@@ -133,6 +138,7 @@ public class Main {
                         System.out.println(studentList.get(i).getID() + " Has been removed from the database!!");
                         studentList.remove(i);
                     }
+                    //else if (studentList.)
                 }
             }
                 /*
@@ -231,7 +237,7 @@ public class Main {
                 add_student();
                 break;
             case 2:
-                // update
+                update_student();
                 break;
             case 3:
                 delete_student();

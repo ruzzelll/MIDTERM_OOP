@@ -3,8 +3,6 @@ import java.util.Scanner;
 import java.util.ArrayList; // import the ArrayList class
 import java.util.*;
 
-
-
 public class Main {
     public static List<Student> studentList = new ArrayList<>();
 
@@ -31,12 +29,32 @@ public class Main {
 
     }
 
+    static void update_student(){
+        System.out.println("====================================================");
+        System.out.println("\t\t\t\t<< UPDATE STUDENT >>");
+        System.out.println("====================================================\n");
+
+        Scanner in = new Scanner(System.in);
+
+
+        System.out.print("Enter ID: ");
+        int updateID = in.nextInt();
+
+        for(int i = 0; i < studentList.size(); i++){
+            if(updateID == studentList.get(i).getID()){
+                System.out.println("Updating Student#");
+            }
+        }
+
+    }
     static void add_student(){
         System.out.println("====================================================");
         System.out.println("\t\t\t\t<< ADD NEW STUDENT >>");
         System.out.println("====================================================\n");
 
         Scanner in = new Scanner(System.in);
+        final int  ModulePrice = 525;
+        final int  RepeatedModulePrice = 110;
 
         System.out.print("Enter ID: ");
         int addID = in.nextInt();
@@ -70,10 +88,20 @@ public class Main {
         System.out.print("Enter Number of Repeated Modules: ");
         int addRepModules = in.nextInt();
 
-        System.out.print("Enter Amount Paid: ");
-        double addAmount = in.nextDouble();
+        // Constraint the user to only input less than or equal than 6 modules
+        if((addModules + addRepModules) > 6){
+            System.out.println("You cannot get more than 6 modules for this semester!");
+            return;
+        }
+        else if (addRepModules > 2){
+            System.out.println("You cannot take a new module if you want to take more than 2 repeated modules this semester!");
+            return;
+        }
 
-        // Inform user that student has been added
+        System.out.print("Enter Amount Paid: ");
+        double addAmount = (ModulePrice * addModules) + (RepeatedModulePrice * addRepModules);
+
+        // Inform user that1 student has been added
         System.out.println("\nSuccessfully Added Student #" + addID + " to the Database!");
 
         // store all inputs of user inside the constructor
@@ -97,25 +125,41 @@ public class Main {
             System.out.print("Enter Student ID (ex. 202110139): ");
             int delID = in.nextInt();
 
-
             for (int i = 0; i < studentList.size(); i++) {
                 if (studentList.get(i).getID() == delID) {
                     System.out.println(studentList.get(i).getID() + " Has been removed from the database!!");
                     studentList.remove(i);
+
+                    if (studentList.lastIndexOf(i) == delID) {
+                        System.out.println(studentList.get(i).getID() + " Has been removed from the database!!");
+                        studentList.remove(i);
+                    }
                 }
+            }
+                /*
                 // if last index is equal to user's ID
-                else if (studentList.lastIndexOf(i) == delID){
+                else if (studentList.lastIndexOf(i) == delID) {
                     System.out.println(studentList.get(i).getID() + " Has been removed from the database!!");
                     studentList.remove(i);
                 }
+
+                 */
+            }
+
+                /*
+                for(int j = 0; i < studentList.size(); j++){
+                     if (studentList.get(i).getID() != delID){
+                        System.out.println("Student #" + delID + " Has not been found from the database!!");
+                        break;
+                    }
+                }
+
+                 */
+
+
             }
 
 
-
-
-        }
-
-    }
 
 
     static void menu_ST(){
@@ -169,6 +213,7 @@ public class Main {
                     break;
                 case 2:
                     menu_teacher();
+                    teach(choice());
                     break;
                 case 3:
                     break;
@@ -193,9 +238,12 @@ public class Main {
                 delete_student();
 
 
+                /*
                 for(int i = 0; i < studentList.size(); i++){
                     System.out.println(studentList.get(i).getFName());
                 }
+
+                 */
                 break;
             case 4:
                 //  show balance
@@ -220,6 +268,7 @@ public class Main {
     static void teach(int c){
         switch (c){
             case 1:
+
                 break;
             case 2:
                 break;

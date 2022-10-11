@@ -14,13 +14,13 @@ public class Main {
     public static void main(String[] args)
     {
 
-        Student student = new Student(1,"Jethro1","Roxas","m",10,"jan",5,4,3);
+        Student student = new Student(1,"Jethro Emmanuel","Roxas","m", "09065235411","Manila",2,1,1000);
         studentList.add(student);
-        Student student2 = new Student(2,"Jethro2","Roxas","m",10,"jan",5,4,3);
+        Student student2 = new Student(2,"Jethro2","Roxas","m","1293827121","jan",1,2,300);
         studentList.add(student2);
-        Student student3 = new Student(3,"Jethro3","Roxas","m",10,"jan",5,4,3);
+        Student student3 = new Student(3,"Jethro3","Roxas","m","1212121210","jan",3,1,3343);
         studentList.add(student3);
-        Student student4 = new Student(4,"Jethro4","Roxas","m",10,"jan",5,4,3);
+        Student student4 = new Student(4,"Jethro4","Roxas","m","10323232","jan",2,1,32343);
         studentList.add(student4);
 
 
@@ -29,31 +29,12 @@ public class Main {
 
     }
 
-    static void update_student(){
-        System.out.println("====================================================");
-        System.out.println("\t\t\t\t<< UPDATE STUDENT >>");
-        System.out.println("====================================================\n");
-
-        Scanner in = new Scanner(System.in);
-
-
-        System.out.print("Enter ID: ");
-        int updateID = in.nextInt();
-
-        for(int i = 0; i < studentList.size(); i++){
-            if(updateID == studentList.get(i).getID()){
-                System.out.println("Updating Student#" + updateID);
-            }
-        }
-
-
-    }
     static void add_student(){
         System.out.println("====================================================");
         System.out.println("\t\t\t\t<< ADD NEW STUDENT >>");
         System.out.println("====================================================\n");
 
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in).useDelimiter("\n");
         final int  ModulePrice = 525;
         final int  RepeatedModulePrice = 110;
 
@@ -70,7 +51,6 @@ public class Main {
 
         System.out.print("Enter First Name: ");
         String addFirstname = in.next();
-        //studentList.get(in.nextInt()).ID();
 
         System.out.print("Enter Last Name: ");
         String addLastname = in.next();
@@ -79,7 +59,7 @@ public class Main {
         String addGender = in.next();
 
         System.out.print("Enter Phone Number: ");
-        int addPhone = in.nextInt();
+        String addPhone = in.next();
 
         System.out.print("Enter Address: ");
         String addAddress = in.next();
@@ -111,6 +91,42 @@ public class Main {
 
         // store inside the array list
         studentList.add(student);
+
+    }
+
+    static void update_student(){
+        System.out.println("====================================================");
+        System.out.println("\t\t\t\t<< UPDATE STUDENT >>");
+        System.out.println("====================================================\n");
+
+        Scanner in = new Scanner(System.in);
+
+
+        System.out.print("Enter ID: ");
+        int updateID = in.nextInt();
+
+        for(int i = 0; i < studentList.size(); i++){
+            if(updateID == studentList.get(i).getID()){
+                System.out.println("Updating Student#" + updateID);
+
+                System.out.println("\nName: " + studentList.get(i).getFName() + " " + studentList.get(i).getLName());
+                System.out.println("Gender: " + studentList.get(i).getGender());
+                System.out.println("Phone Number: " + studentList.get(i).getPhoneNum());
+                System.out.println("Address: " + studentList.get(i).getAddress());
+
+                System.out.println("Number of Modules: " + studentList.get(i).getNumOfModules());
+                System.out.println("Number of Repeated Modules: " + studentList.get(i).getRep_modules());
+
+
+
+                System.out.println("\n\n====================================================");
+                System.out.println("\t\t\t\t<< UPDATE  >>");
+                System.out.println("====================================================\n");
+                System.out.println("[1] ");
+            }
+        }
+
+
 
     }
     static void delete_student(){

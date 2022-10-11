@@ -1,7 +1,7 @@
 public class Person {
     private int ID;
-    private int PhoneNum;
-    private String FName, LName, Gender, Address;
+    //private long PhoneNum;
+    private String FName, LName, PhoneNum, Gender, Address;
 
     public int getID() {
         return ID;
@@ -11,11 +11,11 @@ public class Person {
         this.ID = ID;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return PhoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         PhoneNum = phoneNum;
     }
 
@@ -52,7 +52,7 @@ public class Person {
     }
 
 
-    Person(int ID, String Fname, String Lname, String Gender, int PhoneNum, String Address){
+    Person(int ID, String Fname, String Lname, String Gender, String PhoneNum, String Address){
         this.ID = ID;
         PhoneNum = PhoneNum;
         this.FName = Fname;

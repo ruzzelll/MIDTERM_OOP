@@ -2,7 +2,7 @@ public class Teacher extends Person {
     private String department, designation;
     private double teachingHours;
 
-    public Teacher(int ID, String Fname, String Lname, String Gender, int PhoneNum, String Address, String department, String designation, double teachingHours) {
+    public Teacher(int ID, String Fname, String Lname, String Gender, String PhoneNum, String Address, String department, String designation, double teachingHours) {
         super(ID, Fname, Lname, Gender, PhoneNum, Address);
         this.department = department;
         this.designation = designation;

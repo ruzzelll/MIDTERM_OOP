@@ -94,8 +94,9 @@ public class Student extends Person {
             return;
         }
 
-        System.out.print("Enter Amount Paid: ");
+
         double addAmount = (ModulePrice * addModules) + (RepeatedModulePrice * addRepModules);
+        System.out.print("Account Status ");
 
         // Inform user that1 student has been added
         System.out.println("\nSuccessfully Added Student #" + addID + " to the Database!");
@@ -113,29 +114,135 @@ public class Student extends Person {
         System.out.println("\t\t\t\t<< UPDATE STUDENT >>");
         System.out.println("====================================================\n");
 
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in).useDelimiter("\n");
 
         System.out.print("Enter ID: ");
-        int updateID = in.nextInt();
+        int upID = in.nextInt();
 
         for(int i = 0; i < studentList.size(); i++){
-            if(updateID == studentList.get(i).getID()){
-                System.out.println("Updating Student#" + updateID);
+            if(upID == studentList.get(i).getID()){
 
+
+                System.out.println("Student#" + upID);
                 System.out.println("\nName: " + studentList.get(i).getFName() + " " + studentList.get(i).getLName());
                 System.out.println("Gender: " + studentList.get(i).getGender());
                 System.out.println("Phone Number: " + studentList.get(i).getPhoneNum());
                 System.out.println("Address: " + studentList.get(i).getAddress());
-
                 System.out.println("Number of Modules: " + studentList.get(i).getNumOfModules());
                 System.out.println("Number of Repeated Modules: " + studentList.get(i).getRep_modules());
 
-
-
-                System.out.println("\n\n====================================================");
+                System.out.println("====================================================");
                 System.out.println("\t\t\t\t<< UPDATE  >>");
                 System.out.println("====================================================\n");
-                System.out.println("[1] ");
+
+                System.out.println("[1] Student Number");
+                System.out.println("[2] Name");
+                System.out.println("[3] Gender");
+                System.out.println("[4] Phone Number");
+                System.out.println("[5] Address ");
+                System.out.println("[6] Number of Modules");
+                System.out.println("[7] Number of Repeated Modules");
+
+
+
+
+                switch(Main.choice()){
+                    case 1:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE STUDENT NUMBER  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.print("Enter new Student Number (ex.202110139): ");
+                        int updateID = in.nextInt();
+
+                        for(int k = 0; k < studentList.size(); k++){
+                            if (updateID == studentList.get(k).getID()){
+                                System.out.println(updateID +" is already registered! please try again");
+                            }
+                        }
+                        break;
+
+                    case 2:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE STUDENT NAME  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.println("Enter Student Name ");
+
+                        System.out.print("Enter First name: ");
+                        String updateFName = in.next();
+                        System.out.println("Enter Last name");
+                        String updateLName = in.next();
+
+                        studentList.get(i).setFName(updateFName);
+                        studentList.get(i).setLName(updateLName);
+                        System.out.println("\nStudent name has been updated!");
+                        break;
+                    case 3:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE STUDENT GENDER  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.print("");
+                        break;
+                    case 4:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE PHONE NUMBER  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.print("Enter your new Phone Number: ");
+                        String newPhone = in.next();
+
+                        // setter (setPhoneNum) used to update the current phone number
+                        studentList.get(i).setPhoneNum(newPhone);
+                        System.out.println("\nPhone Number has been updated!");
+                        break;
+                    case 5:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE ADDRESS  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.print("Enter your new Address: ");
+                        String newAddress = in.next();
+
+                        studentList.get(i).setAddress(newAddress);
+                        System.out.println("\nAddress has been updated!");
+                        break;
+                    case 6:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE MODULES  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.print("Update Number Modules: ");
+                        int newModules = in.nextInt();
+
+
+                        // check if user still takes 6 module
+                        if(newModules + studentList.get(i).getNumOfModules() > 6){
+                            System.out.println("Cannot take more than 6 total modules");
+                        }
+                        else {
+                            studentList.get(i).setNumOfModules(newModules);
+                            System.out.println("\nModules Have been updated!");
+                        }
+                        break;
+
+                    case 7:
+                        System.out.println("====================================================");
+                        System.out.println("\t\t\t\t<< UPDATE REPEATED MODULES  >>");
+                        System.out.println("====================================================\n");
+
+                        System.out.println("Update Repeated Modules: ");
+                        int newRepeatedModules = in.nextInt();
+
+                        studentList.get(i).setRep_modules(newRepeatedModules);
+                        System.out.println("\n Repeated Modules have been Updated");
+
+
+
+                }
+
+
             }
         }
 

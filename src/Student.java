@@ -9,6 +9,8 @@ public class Student extends Person {
     final int  RepeatedModulePrice = 110;
 
     public static List<Student> studentList = new ArrayList<>();
+    
+    // hi
 
 
 
